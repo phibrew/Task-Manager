@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.WorkspaceDto;
 import com.example.demo.entity.Workspace;
 import com.example.demo.service.WorkspaceService;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,11 @@ public class WorkspaceController {
     }
 
     @GetMapping
-    public List<Workspace> getAllWorkspaces(){
+    public List<WorkspaceDto> getAllWorkspaces(){
         return workspaceService.findAllWorkspaces();
     }
     @PostMapping
-    public Workspace saveWorkspace(@RequestBody Workspace workspace) {
+    public WorkspaceDto saveWorkspace(@RequestBody Workspace workspace) {
         return workspaceService.saveWorkspace(workspace);
     }
 

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.TaskDto;
 import com.example.demo.entity.Task;
 import com.example.demo.service.TaskService;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +16,12 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<Task> getAllTasks(){
-        return taskService.getAllTasks();
+    public List<TaskDto> getAllTasks(){
+        return taskService.findAllTasks();
     }
 
     @PostMapping
-    public Task saveTask(@RequestBody Task task){
+    public TaskDto saveTask(@RequestBody Task task){
         return taskService.saveTask(task);
     }
 }
