@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tasks")
@@ -9,12 +11,14 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Name field cannot be empty.")
     private String name;
     private String description;
     private String status;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @NotNull(message = "User cannot be null.")
     private User user;
 
     @ManyToOne

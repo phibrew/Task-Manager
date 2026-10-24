@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.TaskDto;
 import com.example.demo.entity.Task;
 import com.example.demo.service.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public TaskDto saveTask(@RequestBody Task task){
+    public TaskDto saveTask(@Valid @RequestBody Task task){
         return taskService.saveTask(task);
     }
 }
